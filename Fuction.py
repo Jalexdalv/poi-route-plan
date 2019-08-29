@@ -6,7 +6,7 @@ import Distance
 
 def get_pois_cityname():
     # 获取poi的城市名称与城市id的映射
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\' + 'list' + '.txt', 'r') as f:
+    with open('pois\\' + 'list' + '.txt', 'r') as f:
         line = f.readline()
         poi_name_list = list()
         while line:
@@ -29,11 +29,11 @@ def search(keyword, poi_name_list):
 def load_pois_data(city_id):
     pois = list()
     comments = list()
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'comments.csv', 'r') as f:
+    with open('pois\\'+city_id+'\\'+city_id+'comments.csv', 'r') as f:
         comments_read = csv.reader(f)
         for cr in comments_read:
             comments.append(cr)
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'.csv', 'r') as f:
+    with open('pois\\'+city_id+'\\'+city_id+'.csv', 'r') as f:
         csv_read = csv.reader(f)
         for cr in csv_read:
             temp = list()
@@ -529,4 +529,7 @@ def Test():
     # 返回评分、评分列表、热度、门票、建议游玩时间
     return avg, ','.join(score_list), heat, ticket, play_time
 
+
+# 运行Test
+print(Test())
 
