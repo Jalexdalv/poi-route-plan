@@ -111,7 +111,8 @@ class Gui(object):
         self.score_input.grid(column=2, row=4, sticky=tkinter.W)
         self.score_button = tkinter.Button(self.commentFrame, command=self.start_score,text="打分", font=16)
         self.score_button.grid(column=3, row=4, sticky=tkinter.E, padx=20, ipadx=10,pady=5)
-        master.protocol("WM_DELETE_WINDOW", self.on_closing)
+        # 未实现的功能：保存评论以及评分
+        # master.protocol("WM_DELETE_WINDOW", self.on_closing)
 
     def start_search(self):
         self.ShowData.delete(0.0, tkinter.END)
@@ -229,9 +230,10 @@ class Gui(object):
                 poi = i
         Fuction.add_score(poi, self.score_input.get().strip())
 
-    def on_closing(self):
-        messagebox.showinfo('提示', '保存成功')
-        self.master.destroy()
+    # 未实现的功能：保存评论以及评分
+    # def on_closing(self):
+    #     messagebox.showinfo('提示', '保存成功')
+    #     self.master.destroy()
 
 
 root = tkinter.Tk()
