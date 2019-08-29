@@ -530,6 +530,7 @@ def Test():
     return avg, ','.join(score_list), heat, ticket, play_time
 
 
-# 运行Test
-print(Test())
+if __name__ == '__main__':
+    # 运行Test
+    print(Test())
 
