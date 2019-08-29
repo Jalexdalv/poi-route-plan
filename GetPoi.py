@@ -15,6 +15,8 @@ amap_web_key = 'b745dc3a2297df3929483a9c6a161289'
 poi_search_url = "http://restapi.amap.com/v3/place/text"
 poi_boundary_url = "https://ditu.amap.com/detail/get/detail"
 
+
+# 添加城市方法：修改此处城市以及城市代码，具体参考 https://lbs.amap.com/api/webservice/guide/api/search
 cityname = '哈尔滨'
 city_id = '0451'
 classes = '风景名胜'
@@ -45,20 +47,20 @@ def hand(poilist, result):
 
 def save_pois(pois):
     # 保存poi信息
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'.csv', 'w', newline='') as f:
+    with open('pois\\'+city_id+'\\'+city_id+'.csv', 'w', newline='') as f:
         csv_write = csv.writer(f)
         for poi in pois:
             csv_write.writerow()
         print("写入csv文件成功")
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'comments.csv', 'w',
+    with open('pois\\'+city_id+'\\'+city_id+'comments.csv', 'w',
               newline=''):
         csv_write = csv.writer(f)
         csv_write.writerow()
 
 
 def write_to_csv(poilist, cityname, city_id):
-    os.makedirs('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id)
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'.csv', 'w', newline='') as f:
+    os.makedirs('pois\\'+city_id)
+    with open('pois\\'+city_id+'\\'+city_id+'.csv', 'w', newline='') as f:
         csv_write = csv.writer(f)
         for poi in poilist:
             test_data = Fuction.Test()
@@ -67,7 +69,7 @@ def write_to_csv(poilist, cityname, city_id):
                                 poi['name'], poi['id'], cityname, str(city_id), test_data[0], test_data[1],
                                 test_data[2], test_data[3], test_data[4]])
         print("写入csv文件成功")
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+city_id+'\\'+city_id+'comments.csv', 'w', newline='') as f:
+    with open('pois\\'+city_id+'\\'+city_id+'comments.csv', 'w', newline='') as f:
         # 建立评论文件
         # id 评论...
         print("创建评论文件成功")
@@ -75,7 +77,7 @@ def write_to_csv(poilist, cityname, city_id):
 
 
 def write_poiname_to_txt(cityname, city_id):
-    with open('C:\\Users\\jalex\\PycharmProjects\\RPA\\pois\\'+'list.txt', 'a+') as f:
+    with open('pois\\'+'list.txt', 'a+') as f:
         f.write(cityname+' '+city_id+'\n')
         print("写入城市列表文件成功")
 
