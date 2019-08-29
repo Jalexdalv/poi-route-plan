@@ -13,7 +13,7 @@ def get_pois_cityname():
             s = line.split(' ')
             poi_name_list.append({s[0].strip():s[1].strip()})  # {城市名：城市id}
             line = f.readline()  # 继续读取下一行
-        # print(poi_name_list)
+        print(poi_name_list)
         return poi_name_list
 
 
@@ -23,7 +23,8 @@ def search(keyword, poi_name_list):
         if keyword in i:
             return True, i[keyword]  # 返回城市编码
         else:
-            return False
+            continue
+    return False
 
 
 def load_pois_data(city_id):
@@ -530,7 +531,7 @@ def Test():
     return avg, ','.join(score_list), heat, ticket, play_time
 
 
-if __name__ == '__main__':
-    # 运行Test
-    print(Test())
+# if __name__ == '__main__':
+# #     # 运行Test
+# #     print(Test())
 
