@@ -1,5 +1,5 @@
 <已废弃的代码>
-# Poi-Router-Plan
+# poi-route-plan
 基于POI兴趣点的旅游路线规划算法
 
 程序入口 - Gui.py
